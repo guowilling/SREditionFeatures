@@ -13,7 +13,7 @@
 		68DD8BB91F7A45B600087E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BB71F7A45B600087E0B /* Main.storyboard */; };
 		68DD8BBB1F7A45B600087E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BBA1F7A45B600087E0B /* Assets.xcassets */; };
 		68DD8BBE1F7A45B600087E0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BBC1F7A45B600087E0B /* LaunchScreen.storyboard */; };
-		68DD8BCB1F7A464B00087E0B /* SREditionFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DD8BCA1F7A464B00087E0B /* SREditionFeaturesViewController.m */; };
+		68DD8BCB1F7A464B00087E0B /* SREditionFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DD8BCA1F7A464B00087E0B /* SREditionFeatures.m */; };
 		68DD8BD11F7A469F00087E0B /* editionfeature1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BCD1F7A469F00087E0B /* editionfeature1.jpg */; };
 		68DD8BD21F7A469F00087E0B /* editionfeature2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BCE1F7A469F00087E0B /* editionfeature2.jpg */; };
 		68DD8BD31F7A469F00087E0B /* editionfeature3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BCF1F7A469F00087E0B /* editionfeature3.jpg */; };
@@ -31,8 +31,8 @@
 		68DD8BBA1F7A45B600087E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68DD8BBD1F7A45B600087E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68DD8BBF1F7A45B600087E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68DD8BC91F7A464B00087E0B /* SREditionFeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SREditionFeaturesViewController.h; sourceTree = "<group>"; };
-		68DD8BCA1F7A464B00087E0B /* SREditionFeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SREditionFeaturesViewController.m; sourceTree = "<group>"; };
+		68DD8BC91F7A464B00087E0B /* SREditionFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SREditionFeatures.h; sourceTree = "<group>"; };
+		68DD8BCA1F7A464B00087E0B /* SREditionFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SREditionFeatures.m; sourceTree = "<group>"; };
 		68DD8BCD1F7A469F00087E0B /* editionfeature1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editionfeature1.jpg; sourceTree = "<group>"; };
 		68DD8BCE1F7A469F00087E0B /* editionfeature2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editionfeature2.jpg; sourceTree = "<group>"; };
 		68DD8BCF1F7A469F00087E0B /* editionfeature3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editionfeature3.jpg; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		68DD8BC51F7A45DC00087E0B /* SREditionFeatures */ = {
 			isa = PBXGroup;
 			children = (
-				68DD8BC91F7A464B00087E0B /* SREditionFeaturesViewController.h */,
-				68DD8BCA1F7A464B00087E0B /* SREditionFeaturesViewController.m */,
+				68DD8BC91F7A464B00087E0B /* SREditionFeatures.h */,
+				68DD8BCA1F7A464B00087E0B /* SREditionFeatures.m */,
 			);
 			name = SREditionFeatures;
 			path = ../../SREditionFeatures;
@@ -192,7 +192,7 @@
 				68DD8BB61F7A45B600087E0B /* ViewController.m in Sources */,
 				68DD8BB31F7A45B600087E0B /* AppDelegate.m in Sources */,
 				68DD8BB01F7A45B600087E0B /* main.m in Sources */,
-				68DD8BCB1F7A464B00087E0B /* SREditionFeaturesViewController.m in Sources */,
+				68DD8BCB1F7A464B00087E0B /* SREditionFeatures.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

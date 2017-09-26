@@ -1,5 +1,5 @@
 //
-//  SREditionFeaturesViewController.h
+//  SREditionFeatures.h
 //  SREditionFeaturesDemo
 //
 //  Created by https://github.com/guowilling on 2017/9/26.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SREditionFeaturesViewController : UIViewController
+@interface SREditionFeatures : UIViewController
 
 /**
  If you want a start button in the final feature image, set this property with a image name.

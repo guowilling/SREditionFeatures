@@ -1,26 +1,28 @@
 //
-//  SREditionFeaturesViewController.m
+//  SREditionFeatures.m
 //  SREditionFeaturesDemo
 //
 //  Created by https://github.com/guowilling on 2017/9/26.
 //  Copyright © 2017年 SR. All rights reserved.
 //
 
-#import "SREditionFeaturesViewController.h"
+#import "SREditionFeatures.h"
 
-@interface SREditionFeaturesViewController () <UIScrollViewDelegate>
+@interface SREditionFeatures () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIViewController *rootVC;
 
 @property (nonatomic, strong) NSArray *imageNames;
+
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViews;
 
 @property (nonatomic, strong) UIPageControl *pageControl;
+
 @property (nonatomic, strong) UIButton *skipButton;
 
 @end
 
-@implementation SREditionFeaturesViewController
+@implementation SREditionFeatures
 
 - (NSMutableArray<UIImageView *> *)imageViews {
     if (!_imageViews) {
