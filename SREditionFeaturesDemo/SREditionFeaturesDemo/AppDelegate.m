@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SREditionFeatures.h"
+#import "SREditionFeaturesViewController.h"
 #import "ViewController.h"
 
 @interface AppDelegate ()
@@ -23,13 +23,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    BOOL shouldShow = [SREditionFeatures sr_shouldShowEditionFeatures];
+    BOOL shouldShow = [SREditionFeaturesViewController sr_shouldShowEditionFeatures];
     shouldShow = YES; // set YES for test
     if (shouldShow) {
         NSArray *imageNames = @[@"editionfeature1.jpg", @"editionfeature2.jpg", @"editionfeature3.jpg", @"editionfeature4.jpg"];
-        SREditionFeatures *editionFeaturesVC = [SREditionFeatures sr_editionFeaturesWithImageNames:imageNames rootViewController:[ViewController new]];
-        editionFeaturesVC.startBtnImageName = @"start_huanshi_AR_normal";
-        editionFeaturesVC.hideSkipButton = NO; // show skip Button
+        SREditionFeaturesViewController *editionFeaturesVC = [SREditionFeaturesViewController sr_editionFeaturesWithImageNames:imageNames rootViewController:[ViewController new] completion:^{
+            NSLog(@"finish read edition features and switch root view controller");
+        }];
+        editionFeaturesVC.startBtnImageName = @"start_huanshi_ar_normal";
+        editionFeaturesVC.hidePageControl = YES;
+        editionFeaturesVC.hideSkipButton = NO;
         self.window.rootViewController = editionFeaturesVC;
     } else {
         self.window.rootViewController = [ViewController new];

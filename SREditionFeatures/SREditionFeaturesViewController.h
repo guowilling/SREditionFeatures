@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SREditionFeatures : UIViewController
+@interface SREditionFeaturesViewController : UIViewController
 
 /**
  If you want a start button in the final feature image, set this property with a image name.
@@ -47,9 +47,10 @@
  
  @param imageNames The image's name array.
  @param rootVC     The key window's true root view controller.
+ @param completion A block object to be executed when finish read edition features and switch root view controller.
  
  @return EditionFeaturesViewController
  */
-+ (instancetype)sr_editionFeaturesWithImageNames:(NSArray *)imageNames rootViewController:(UIViewController *)rootVC;
++ (instancetype)sr_editionFeaturesWithImageNames:(NSArray *)imageNames rootViewController:(UIViewController *)rootVC completion:(void (^)(void))completion;
 
 @end

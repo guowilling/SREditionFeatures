@@ -13,7 +13,7 @@
 		68DD8BB91F7A45B600087E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BB71F7A45B600087E0B /* Main.storyboard */; };
 		68DD8BBB1F7A45B600087E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BBA1F7A45B600087E0B /* Assets.xcassets */; };
 		68DD8BBE1F7A45B600087E0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BBC1F7A45B600087E0B /* LaunchScreen.storyboard */; };
-		68DD8BCB1F7A464B00087E0B /* SREditionFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DD8BCA1F7A464B00087E0B /* SREditionFeatures.m */; };
+		68DD8BCB1F7A464B00087E0B /* SREditionFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68DD8BCA1F7A464B00087E0B /* SREditionFeaturesViewController.m */; };
 		68DD8BD11F7A469F00087E0B /* editionfeature1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BCD1F7A469F00087E0B /* editionfeature1.jpg */; };
 		68DD8BD21F7A469F00087E0B /* editionfeature2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BCE1F7A469F00087E0B /* editionfeature2.jpg */; };
 		68DD8BD31F7A469F00087E0B /* editionfeature3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68DD8BCF1F7A469F00087E0B /* editionfeature3.jpg */; };
@@ -31,8 +31,8 @@
 		68DD8BBA1F7A45B600087E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68DD8BBD1F7A45B600087E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68DD8BBF1F7A45B600087E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68DD8BC91F7A464B00087E0B /* SREditionFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SREditionFeatures.h; sourceTree = "<group>"; };
-		68DD8BCA1F7A464B00087E0B /* SREditionFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SREditionFeatures.m; sourceTree = "<group>"; };
+		68DD8BC91F7A464B00087E0B /* SREditionFeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SREditionFeaturesViewController.h; sourceTree = "<group>"; };
+		68DD8BCA1F7A464B00087E0B /* SREditionFeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SREditionFeaturesViewController.m; sourceTree = "<group>"; };
 		68DD8BCD1F7A469F00087E0B /* editionfeature1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editionfeature1.jpg; sourceTree = "<group>"; };
 		68DD8BCE1F7A469F00087E0B /* editionfeature2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editionfeature2.jpg; sourceTree = "<group>"; };
 		68DD8BCF1F7A469F00087E0B /* editionfeature3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = editionfeature3.jpg; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		68DD8BC51F7A45DC00087E0B /* SREditionFeatures */ = {
 			isa = PBXGroup;
 			children = (
-				68DD8BC91F7A464B00087E0B /* SREditionFeatures.h */,
-				68DD8BCA1F7A464B00087E0B /* SREditionFeatures.m */,
+				68DD8BC91F7A464B00087E0B /* SREditionFeaturesViewController.h */,
+				68DD8BCA1F7A464B00087E0B /* SREditionFeaturesViewController.m */,
 			);
 			name = SREditionFeatures;
 			path = ../../SREditionFeatures;
@@ -139,7 +139,7 @@
 		68DD8BA31F7A45B600087E0B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = SR;
 				TargetAttributes = {
 					68DD8BAA1F7A45B600087E0B = {
@@ -192,7 +192,7 @@
 				68DD8BB61F7A45B600087E0B /* ViewController.m in Sources */,
 				68DD8BB31F7A45B600087E0B /* AppDelegate.m in Sources */,
 				68DD8BB01F7A45B600087E0B /* main.m in Sources */,
-				68DD8BCB1F7A464B00087E0B /* SREditionFeatures.m in Sources */,
+				68DD8BCB1F7A464B00087E0B /* SREditionFeaturesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +228,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -236,7 +238,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -276,7 +282,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -284,7 +292,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -318,8 +330,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willing.SREditionFeaturesDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8fe22b58-3cf2-4563-9f30-feb8021cc441";
-				PROVISIONING_PROFILE_SPECIFIER = PPForAll;
+				PROVISIONING_PROFILE = "f3a55d34-a082-41a1-892a-f34e32cf7f46";
+				PROVISIONING_PROFILE_SPECIFIER = "PP For All";
 			};
 			name = Debug;
 		};
@@ -333,8 +345,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.willing.SREditionFeaturesDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8fe22b58-3cf2-4563-9f30-feb8021cc441";
-				PROVISIONING_PROFILE_SPECIFIER = PPForAll;
+				PROVISIONING_PROFILE = "f3a55d34-a082-41a1-892a-f34e32cf7f46";
+				PROVISIONING_PROFILE_SPECIFIER = "PP For All";
 			};
 			name = Release;
 		};

@@ -6,9 +6,9 @@
 //  Copyright © 2017年 SR. All rights reserved.
 //
 
-#import "SREditionFeatures.h"
+#import "SREditionFeaturesViewController.h"
 
-@interface SREditionFeatures () <UIScrollViewDelegate>
+@interface SREditionFeaturesViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIViewController *rootVC;
 
@@ -20,9 +20,15 @@
 
 @property (nonatomic, strong) UIButton *skipButton;
 
+@property (nonatomic, copy) void (^completionBlock)(void);
+
 @end
 
-@implementation SREditionFeatures
+@implementation SREditionFeaturesViewController
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 - (NSMutableArray<UIImageView *> *)imageViews {
     if (!_imageViews) {
@@ -43,15 +49,16 @@
     }
 }
 
-+ (instancetype)sr_editionFeaturesWithImageNames:(NSArray *)imageNames rootViewController:(UIViewController *)rootVC {
-    return [[self alloc] initWithImageNames:imageNames rootViewController:rootVC];
++ (instancetype)sr_editionFeaturesWithImageNames:(NSArray *)imageNames rootViewController:(UIViewController *)rootVC completion:(void (^)(void))completion {
+    return [[self alloc] initWithImageNames:imageNames rootViewController:rootVC completion:completion];
 }
 
-- (instancetype)initWithImageNames:(NSArray *)imageNames rootViewController:(UIViewController *)rootVC {
+- (instancetype)initWithImageNames:(NSArray *)imageNames rootViewController:(UIViewController *)rootVC completion:(void (^)(void))completion {
     if (self = [super init]) {
         self.view.backgroundColor = [UIColor clearColor];
         _imageNames = imageNames;
         _rootVC = rootVC;
+        _completionBlock = completion;
         [self setupSubViews];
     }
     return self;
@@ -92,11 +99,11 @@
     [self.view addSubview:_pageControl];
     
     [self.view addSubview:({
-        CGFloat margin  = 20;
+        CGFloat margin  = 12;
         CGFloat buttonW = 60;
         CGFloat buttonH = buttonW * 0.5;
         _skipButton = [[UIButton alloc] init];
-        _skipButton.frame = CGRectMake(self.view.frame.size.width - margin - buttonW, self.view.frame.size.height - margin - buttonH, buttonW, buttonH);
+        _skipButton.frame = CGRectMake(self.view.frame.size.width - margin - buttonW, margin, buttonW, buttonH);
         _skipButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
         _skipButton.layer.cornerRadius = 15;
         _skipButton.layer.masksToBounds = YES;
@@ -116,8 +123,11 @@
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         [UIApplication sharedApplication].keyWindow.rootViewController = self.rootVC;
-                    }
-                    completion:nil];
+                    } completion:^(BOOL finished) {
+                        if (_completionBlock) {
+                            _completionBlock();
+                        }
+                    }];
 }
 
 - (void)skipBtnAction {
@@ -127,36 +137,42 @@
 #pragma mark - Setters
 
 - (void)setStartBtnImageName:(NSString *)startBtnImageName {
-    if (!startBtnImageName) {
-        return;
-    }
     UIImageView *imageView = self.imageViews.lastObject;
     imageView.userInteractionEnabled = YES;
     UIButton *switchBtn = [[UIButton alloc] init];
-    [switchBtn setBackgroundImage:[UIImage imageNamed:startBtnImageName] forState:UIControlStateNormal];
-    [switchBtn sizeToFit];
-    [switchBtn setCenter:CGPointMake(self.view.center.x, self.view.frame.size.height * 0.75)];
+    UIImage *startBtnImage = [UIImage imageNamed:startBtnImageName];
+    [switchBtn setBackgroundImage:startBtnImage forState:UIControlStateNormal];
+    if (startBtnImage) {
+        [switchBtn sizeToFit];
+    } else {
+        switchBtn.frame = CGRectMake(0, 0, 200, 200);
+    }
+    switchBtn.center = CGPointMake(self.view.center.x, self.view.frame.size.height * 0.8);
     [switchBtn addTarget:self action:@selector(switchRootVC) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:switchBtn];
 }
 
 - (void)setCurrentPageIndicatorTintColor:(UIColor *)currentPageIndicatorTintColor {
     _currentPageIndicatorTintColor = currentPageIndicatorTintColor;
+    
     _pageControl.currentPageIndicatorTintColor = currentPageIndicatorTintColor;
 }
 
 - (void)setPageIndicatorTintColor:(UIColor *)pageIndicatorTintColor {
     _pageIndicatorTintColor = pageIndicatorTintColor;
+    
     _pageControl.pageIndicatorTintColor = pageIndicatorTintColor;
 }
 
 - (void)setHidePageControl:(BOOL)hidePageControl {
     _hidePageControl = hidePageControl;
+    
     _pageControl.hidden = hidePageControl;
 }
 
 - (void)setHideSkipButton:(BOOL)hideSkipButton {
     _hideSkipButton = hideSkipButton;
+    
     _skipButton.hidden = hideSkipButton;
 }
 
@@ -168,6 +184,9 @@
     
     if (page == self.imageNames.count) {
         [UIApplication sharedApplication].keyWindow.rootViewController = self.rootVC;
+        if (_completionBlock) {
+            _completionBlock();
+        }
     }
 }
 
