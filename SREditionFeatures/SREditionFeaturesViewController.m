@@ -77,8 +77,9 @@
     
     for (int i = 0; i < self.imageNames.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView setFrame:CGRectMake(imageW * i, 0, imageW, imageH)];
-        [imageView setImage:[UIImage imageNamed:_imageNames[i]]];
+        imageView.frame = CGRectMake(imageW * i, 0, imageW, imageH);
+        imageView.image = [UIImage imageNamed:_imageNames[i]];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         [scrollView addSubview:imageView];
         [self.imageViews addObject:imageView];
         if (i == self.imageNames.count - 1) {

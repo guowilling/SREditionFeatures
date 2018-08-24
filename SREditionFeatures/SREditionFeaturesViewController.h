@@ -11,7 +11,7 @@
 @interface SREditionFeaturesViewController : UIViewController
 
 /**
- If you want a start button in the final feature image, set this property with a image name.
+ If you want a start button in the final feature image, set this property with a button's image name or pass nil to create a placeholder button for user action.
  */
 @property (nonatomic, copy) NSString *startBtnImageName;
 
